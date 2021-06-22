@@ -8,7 +8,7 @@ const db = require("./config/db");
 const users = require('../backend/routes/users')
 const products = require('../backend/routes/products')
 const categories = require('../backend/routes/categories')
-// const orders = require('../backend/routes/orders')
+const orders = require('../backend/routes/orders')
 const ordersItems = require('../backend/routes/orderItems')
 const authJwt = require('./helpers/jwt');
 const errorHandler = require('./helpers/error-handler');
@@ -32,6 +32,7 @@ app_url = process.env.APP_URL
 
 app.use(`${app_url}/products`, products)
 app.use(`${app_url}/users`, users)
+app.use(`${app_url}/orders`, orders)
 app.use(`${app_url}/categories`, categories)
 app.use(`${app_url}/orderItems`, ordersItems)
 
