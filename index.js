@@ -26,6 +26,7 @@ app.use(cors())
 app.options("*", cors())
 app.use(authJwt());
 app.use(errorHandler);
+app.use("/public/uploads", express.static(__dirname + "/public/uploads"));
 app_url = process.env.APP_URL
 
 
