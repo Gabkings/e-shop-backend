@@ -6,4 +6,12 @@ const CategorySchema = new Schema({
     color: {type: String}
 })
 
+CategorySchema.virtual('id').get(function () {
+    return this._id.toHexString();
+});
+
+CategorySchema.set('toJSON', {
+    virtuals: true,
+});
+
 exports.Category = mongoose.model("Category", CategorySchema )

@@ -23,7 +23,7 @@ router.post(`/`, async (req, res) => {
     if (!category) {
         return res.status(404).json({success: false, message: "Category cannot be created"})
     }
-    res.status(201).send(category);
+    res.status(201).send({data:{message:"Created successfully",category}});
 })
 
 router.delete("/:id", (req, res) => {
@@ -60,9 +60,9 @@ router.put("/:id", (req, res) => {
 router.get("/:id", (req, res) => {
     Category.findById(req.params.id).then(category => {
         if (category) {
-            return res.status(200).send({success: true, category: category})
+            return res.status(200).send(category)
         } else {
-            return res.status(404).send({success: false, message: "Item not found"})
+            return res.status(404).send({message: "Item not found"})
         }
     }).catch(e => {
         return res.status(500).send({
