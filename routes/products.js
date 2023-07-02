@@ -47,7 +47,7 @@ router.get(`/`, async (req, res) =>{
 })
 
 router.get(`/:id`, async (req, res) =>{
-    const product = await Product.findById(req.params.id).populate("category");
+    const product = await Product.findById(req.params.id).populate('category');
 
     if(!product) {
         res.status(500).json({success: false})
@@ -160,7 +160,7 @@ router.get("/get/featured/:count", async (req, res)=> {
     if(!products) {
         res.status(500).json({success: false})
     }
-    res.status(200).send({products: products});
+    res.status(200).send(products);
 
 })
 

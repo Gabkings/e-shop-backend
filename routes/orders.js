@@ -98,15 +98,20 @@ router.delete('/:id', (req, res)=>{
     })
 })
 
-router.get("/total_sales", async (req, res) =>{
-    const totalSale = await Order.aggregate([
-        { $group: {_id: null, totalSales : {$sum : '$totalPrice'}}}
-    ])
+// router.get('/get/totalsales', async (req, res)=> {
+//     const totalSales= await Order.aggregate([
+//         { $group: { _id : "$_id", totalSales : { $sum : "$totalPrice"}}}
+//     ])
+//
+//     console.log(totalSales)
+//
+//     if(!totalSales) {
+//         return res.status(400).send('The order sales cannot be generated')
+//     }
+//
+//     res.send({totalSales: totalSales.pop().totalSales})
+// })
 
-    if(!totalSale) return res.status(400).send({message: "Unable to generate total sales"})
-
-    res.status(200).send({totalSale: totalSale.pop().totalSale})
-})
 
 router.get(`/get/count`, async (req, res) =>{
     const orderCount = await Order.countDocuments((count) => count)

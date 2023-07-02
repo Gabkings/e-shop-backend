@@ -5,11 +5,11 @@ require('dotenv/config')
 
 const db = require("./config/db");
 
-const users = require('../backend/routes/users')
-const products = require('../backend/routes/products')
-const categories = require('../backend/routes/categories')
-const orders = require('../backend/routes/orders')
-const ordersItems = require('../backend/routes/orderItems')
+const users = require('./routes/users')
+const products = require('./routes/products')
+const categories = require('./routes/categories')
+const orders = require('./routes/orders')
+const ordersItems = require('./routes/orderItems')
 const authJwt = require('./helpers/jwt');
 const errorHandler = require('./helpers/error-handler');
 
